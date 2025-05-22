@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Produk</title>
+  <style>
+    img {
+      max-width: 300px;
+    }
+    .produk-detail {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="produk-detail" id="produk-detail">
+    Memuat detail produk...
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    const produkList = JSON.parse(localStorage.getItem("produkList"));
+    const produk = produkList.find(p => p.id === id);
+
+    const container = document.getElementById("produk-detail");
+
+    if (produk) {
+      container.innerHTML = `
+        <h1>${produk.nama}</h1>
+        <img src="${produk.gambar}" alt="${produk.nama}">
+        <p><strong>Harga:</strong> Rp${produk.harga.toLocaleString()}</p>
+        <p><strong>Stok:</strong> ${produk.stok}</p>
+        <p><strong>Deskripsi:</strong> ${produk.deskripsi}</p>
+        <a href="index.html">← Kembali ke daftar produk</a>
+      `;
+    } else {
+      container.innerHTML = "<p>Produk tidak ditemukan.</p>";
+    }
+  </script>
+
+</body>
+</html>

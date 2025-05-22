@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="images/bunga.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <title>Admin Dashboard - Soléa Flowers</title>
+</head>
+
+<body>
+
+<!-- Start Header/Navigation -->
+<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="active"><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
+                        <li><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
+                        <li><a class="nav-link" href="kelolaartikel.html">Kelola Artikel</a></li>
+					</ul>
+
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<img src="images/user.svg" alt="User Icon">
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="index.html">User Here</a></li>
+								<li><a class="dropdown-item" href="dashboardadmin.html">Admin Here</a></li>
+							</ul>
+						</li>	
+						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+					</ul>
+				</div>
+			</div>	
+		</nav>
+<!-- End Header/Navigation -->
+
+<!-- Start Hero Section (Dashboard) -->
+<div class="hero">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-5">
+        <div class="intro-excerpt">
+          <h1>Welcome, Admin!</h1>
+          <p class="mb-4">Manage products, articles, and track insights on this dashboard.</p>
+          <p><a href="kelolaproduk.html" class="btn btn-secondary me-2">Kelola Produk</a><a href="kelolaartikel.html" class="btn btn-white-outline">Kelola Artikel</a></p>                                                        
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="hero-img-wrap">
+          <img src="images/logo-dashboard4.png" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Start Dashboard Insights Section -->
+ <div class="container my-5">
+  <h3>Grafik Penjualan Bulanan</h3>
+  <canvas id="salesChart" width="400" height="200"></canvas>
+</div>
+
+<div class="container py-5">
+  <h2>Dashboard Overview</h2>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Total Produk</h5>
+          <p class="card-text" id="total-products">0 Produk</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Total Penjualan</h5>
+          <p class="card-text" id="total-sales">0 Buket</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Produk Tersedia</h5>
+          <p class="card-text" id="available-products">0 Produk Tersedia</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Total Artikel</h5>
+          <p class="card-text" id="total-articles">0 Artikel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart Penjualan -->
+<div class="container my-5">
+  <h3>Grafik Penjualan Bulanan</h3>
+  <canvas id="salesChart" width="400" height="200"></canvas>
+</div>
+<!-- End Dashboard Insights Section -->
+
+<!-- Start Dashboard Actions Section -->
+<div class="container py-5">
+  <h3>Quick Actions</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="kelolaproduk.html" class="btn btn-primary btn-lg w-100">Kelola Produk</a>
+    </div>
+    <div class="col-md-6">
+      <a href="kelolaartikel.html" class="btn btn-secondary btn-lg w-100">Kelola Artikel</a>
+    </div>
+  </div>
+</div>
+<!-- End Dashboard Actions Section -->
+
+<!-- Start Footer Section -->
+<footer class="footer-section py-4">
+  <div class="container text-center">
+    <p>&copy; 2025 Soléa Flowers. All rights reserved.</p>
+  </div>
+</footer>
+<!-- End Footer Section -->
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/tiny-slider.js"></script>
+<script src="js/custom.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Ambil data dari localStorage
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const sales = JSON.parse(localStorage.getItem('sales')) || [];
+  const articles = JSON.parse(localStorage.getItem('articles')) || [];
+
+  // Hitung total produk
+  const totalProducts = products.length;
+
+  // Hitung total penjualan (jumlah buket terjual)
+  const totalSales = sales.reduce((sum, item) => sum + item.totalSales, 0);
+
+  // Hitung produk tersedia (available = true)
+  const availableProducts = products.filter(p => p.available).length;
+
+  // Total artikel
+  const totalArticles = articles.length;
+
+  // Tampilkan ke elemen HTML
+  document.getElementById('total-products').textContent = `${totalProducts} Produk`;
+  document.getElementById('total-sales').textContent = `${totalSales} Buket`;
+  document.getElementById('available-products').textContent = `${availableProducts} Produk Tersedia`;
+  document.getElementById('total-articles').textContent = `${totalArticles} Artikel`;
+
+  // Siapkan data chart
+  const labels = sales.map(item => item.month);
+  const salesData = sales.map(item => item.totalSales);
+  const revenueData = sales.map(item => item.totalRevenue);
+
+  // Render chart penjualan dengan Chart.js
+  const ctx = document.getElementById('salesChart').getContext('2d');
+  const salesChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Penjualan Buket',
+          data: salesData,
+          borderColor: 'rgb(75, 192, 192)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: false,
+          tension: 0.3
+        },
+        {
+          label: 'Pendapatan (Rp)',
+          data: revenueData,
+          borderColor: 'rgb(255, 159, 64)',
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          fill: false,
+          tension: 0.3,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      plugins: {
+        legend: { display: true },
+        title: {
+          display: true,
+          text: 'Tren Penjualan dan Pendapatan 6 Bulan Terakhir'
+        }
+      },
+      scales: {
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Jumlah Buket'
+          }
+        },
+        y1: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          beginAtZero: true,
+          grid: { drawOnChartArea: false },
+          title: {
+            display: true,
+            text: 'Pendapatan (Rp)'
+          },
+          ticks: {
+            callback: function(value) {
+              return 'Rp ' + value.toLocaleString('id-ID');
+            }
+          }
+        }
+      }
+    }
+  });
+});
+</script>
+
+</body>
+
+</html>
