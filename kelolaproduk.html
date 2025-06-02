@@ -13,44 +13,89 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="css/tiny-slider.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  
   <title>Kelola Produk - Soléa Flowers</title>
+  <style>
+    .table-responsive {
+      overflow-x: auto;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .table td img {
+      max-width: 60px;
+      height: auto;
+    }
+    .btn-action {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    @media (max-width: 768px) {
+      .table th, .table td {
+        font-size: 14px;
+        max-width: 150px;
+      }
+      .btn-action {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+      .btn-action i {
+        font-size: 12px;
+      }
+      .table td img {
+        max-width: 40px;
+      }
+    }
+    @media (max-width: 576px) {
+      .table th, .table td {
+        font-size: 12px;
+        max-width: 100px;
+      }
+      .btn-action {
+        padding: 2px 6px;
+        font-size: 10px;
+      }
+      .btn-action i {
+        font-size: 10px;
+      }
+      .table td img {
+        max-width: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
 <!-- Start Header/Navigation -->
-<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                        <li><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
-                        <li class="active"><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
-                        <li><a class="nav-link" href="kelolaartikel.html">Kelola Artikrl</a></li>
-					</ul>
-
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<img src="images/user.svg" alt="User Icon">
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="index.html">User Here</a></li>
-								<li><a class="dropdown-item" href="dashboardadmin.html">Admin Here</a></li>
-							</ul>
-						</li>	
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
-					</ul>
-				</div>
-			</div>	
-		</nav>
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
+        <li class="active"><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
+        <li><a class="nav-link" href="kelolaartikel.html">Kelola Artikel</a></li>
+      </ul>
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="images/user.svg" alt="User Icon">
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- End Header/Navigation -->
 
 <!-- Start Hero Section (Kelola Produk) -->
@@ -60,7 +105,7 @@
       <div class="col-lg-5">
         <div class="intro-excerpt">
           <h1>Kelola Produk</h1>
-          <p class="mb-4">Add, edit, or remove flower products from the catalog.</p>
+          <p class="mb-4">Tambah, edit, atau hapus produk bunga dari katalog.</p>
         </div>
       </div>
       <div class="col-lg-7">
@@ -75,29 +120,33 @@
 
 <!-- Start Form Tambah Produk -->
 <div class="container py-5">
-  <h3>Tambah Produk Baru</h3>
-  <form id="addProductForm">
-    <div class="mb-3">
+  <h3>Tambah/Edit Produk</h3>
+  <form id="addProductForm" class="row g-3">
+    <input type="hidden" id="editProductId" value="">
+    <div class="col-12 col-md-6 mb-3">
       <label for="productName" class="form-label">Nama Produk</label>
       <input type="text" class="form-control" id="productName" required>
     </div>
-    <div class="mb-3">
-      <label for="productDescription" class="form-label">Deskripsi Produk</label>
-      <textarea class="form-control" id="productDescription" required></textarea>
-    </div>
-    <div class="mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="productPrice" class="form-label">Harga Produk</label>
       <input type="number" class="form-control" id="productPrice" required>
     </div>
-    <div class="mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="productStock" class="form-label">Stok Produk</label>
       <input type="number" class="form-control" id="productStock" required>
     </div>
-    <div class="mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="productImage" class="form-label">Foto Produk</label>
-      <input type="file" class="form-control" id="productImage" accept="image/*" required>
+      <input type="file" class="form-control" id="productImage" accept="image/*">
     </div>
-    <button type="submit" class="btn btn-primary">Tambah Produk</button>
+    <div class="col-12 mb-3">
+      <label for="productDescription" class="form-label">Deskripsi Produk</label>
+      <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Simpan Produk</button>
+      <button type="button" class="btn btn-secondary" id="cancelEdit" style="display:none;" onclick="cancelEdit()">Batal</button>
+    </div>
   </form>
 </div>
 <!-- End Form Tambah Produk -->
@@ -105,151 +154,161 @@
 <!-- Start Tabel Produk -->
 <div class="container py-5">
   <h3>Daftar Produk</h3>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nama Produk</th>
-        <th>Deskripsi</th>
-        <th>Harga</th>
-        <th>Stok</th>
-        <th>Status</th>  <!-- Kolom Status -->
-        <th>Foto</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody id="productTableBody">
-      <!-- Data Produk akan dimuat di sini -->
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nama Produk</th>
+          <th>Deskripsi</th>
+          <th>Harga</th>
+          <th>Stok</th>
+          <th>Status</th>
+          <th>Foto</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody">
+        <!-- Data Produk akan dimuat di sini -->
+      </tbody>
+    </table>
+  </div>
 </div>
 <!-- End Tabel Produk -->
 
-
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
-  // Simpan Produk di Local Storage
-  let products = JSON.parse(localStorage.getItem('products')) || [];
+  // Ambil produk dari localStorage atau gunakan array kosong
+  let produkList = JSON.parse(localStorage.getItem('produkList')) || [];
+
+  // Fungsi untuk menghasilkan ID unik
+  function getNewId() {
+    return produkList.length > 0 ? Math.max(...produkList.map(p => p.id)) + 1 : 1;
+  }
+
+  // Fungsi Menambah Stok Produk
+  function addStock(index) {
+    const product = produkList[index];
+    const stockToAdd = prompt("Masukkan jumlah stok yang ingin ditambahkan:", "0");
+    if (stockToAdd && !isNaN(stockToAdd)) {
+      product.stok += parseInt(stockToAdd);
+      localStorage.setItem('produkList', JSON.stringify(produkList));
+      displayProducts();
+    } else {
+      alert("Input stok tidak valid.");
+    }
+  }
+
+  // Fungsi Arsipkan Produk
+  function archiveProduct(index) {
+    const product = produkList[index];
+    if (confirm(`Apakah Anda yakin ingin mengarsipkan produk "${product.nama}"?`)) {
+      product.status = 'Arsip';
+      localStorage.setItem('produkList', JSON.stringify(produkList));
+      displayProducts();
+    }
+  }
 
   // Tampilkan Produk di Tabel
   function displayProducts() {
     const tableBody = document.getElementById('productTableBody');
     tableBody.innerHTML = '';
-    products.forEach((product, index) => {
+    produkList.forEach((product, index) => {
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${product.name}</td>
-        <td>${product.description}</td>
-        <td>${product.price}</td>
-        <td>${product.stock}</td>
-        <td><img src="${product.image}" alt="${product.name}" width="50"></td>
+        <td>${product.id}</td>
+        <td>${product.nama}</td>
+        <td>${product.deskripsi}</td>
+        <td>Rp${product.harga.toLocaleString()}</td>
+        <td>${product.stok}</td>
+        <td>${product.status || 'Aktif'}</td>
+        <td><img src="${product.gambar}" alt="${product.nama}" style="max-width: 60px;"></td>
         <td>
-          <button class="btn btn-warning btn-sm" onclick="editProduct(${index})">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">Delete</button>
+          <button class="btn btn-success btn-sm btn-action" onclick="addStock(${index})"><i class="fas fa-plus"></i> Tambah Stok</button>
+          <button class="btn btn-warning btn-sm btn-action" onclick="editProduct(${index})"><i class="fas fa-edit"></i> Edit</button>
+          <button class="btn btn-danger btn-sm btn-action" onclick="deleteProduct(${index})"><i class="fas fa-trash"></i> Delete</button>
+          <button class="btn btn-info btn-sm btn-action" onclick="archiveProduct(${index})"><i class="fas fa-archive"></i> Arsipkan</button>
         </td>
       `;
       tableBody.appendChild(row);
     });
   }
 
-  // Fungsi Menambah Produk
+  // Fungsi Menambah atau Edit Produk
   document.getElementById('addProductForm').addEventListener('submit', (e) => {
     e.preventDefault();
+    const editProductId = document.getElementById('editProductId').value;
     const productName = document.getElementById('productName').value;
     const productDescription = document.getElementById('productDescription').value;
-    const productPrice = document.getElementById('productPrice').value;
-    const productStock = document.getElementById('productStock').value;
+    const productPrice = parseInt(document.getElementById('productPrice').value);
+    const productStock = parseInt(document.getElementById('productStock').value);
     const productImage = document.getElementById('productImage').files[0];
 
-    // Convert Image to Base64
-    const reader = new FileReader();
-    reader.onloadend = function () {
+    const saveProduct = (imageData) => {
       const newProduct = {
-        name: productName,
-        description: productDescription,
-        price: productPrice,
-        stock: parseInt(productStock),  // Menyimpan stok
-        image: reader.result // base64 image
+        id: editProductId ? parseInt(editProductId) : getNewId(),
+        nama: productName,
+        harga: productPrice,
+        stok: productStock,
+        gambar: imageData,
+        deskripsi: productDescription,
+        status: "Aktif"
       };
 
-      products.push(newProduct);
-      localStorage.setItem('products', JSON.stringify(products));
+      if (editProductId) {
+        // Update produk yang ada
+        const index = produkList.findIndex(p => p.id === parseInt(editProductId));
+        if (index !== -1) {
+          newProduct.gambar = imageData || produkList[index].gambar; // Gunakan gambar lama jika tidak ada gambar baru
+          produkList[index] = newProduct;
+        }
+      } else {
+        // Tambah produk baru
+        produkList.push(newProduct);
+      }
+
+      localStorage.setItem('produkList', JSON.stringify(produkList));
       displayProducts();
-      document.getElementById('addProductForm').reset();
+      cancelEdit(); // Reset form setelah simpan
     };
+
     if (productImage) {
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        saveProduct(reader.result);
+      };
       reader.readAsDataURL(productImage);
+    } else {
+      saveProduct(null); // Jika tidak ada gambar baru, gunakan gambar lama (untuk edit)
     }
   });
 
   // Fungsi Edit Produk
   function editProduct(index) {
-    const product = products[index];
-    document.getElementById('productName').value = product.name;
-    document.getElementById('productDescription').value = product.description;
-    document.getElementById('productPrice').value = product.price;
-    document.getElementById('productStock').value = product.stock;
-    // Hapus Produk yang Lama dan Ganti dengan yang Baru
-    products.splice(index, 1);
-    localStorage.setItem('products', JSON.stringify(products));
-    displayProducts();
+    const product = produkList[index];
+    document.getElementById('editProductId').value = product.id;
+    document.getElementById('productName').value = product.nama;
+    document.getElementById('productDescription').value = product.deskripsi;
+    document.getElementById('productPrice').value = product.harga;
+    document.getElementById('productStock').value = product.stok;
+    document.getElementById('cancelEdit').style.display = 'inline-block';
+  }
+
+  // Fungsi Batal Edit
+  function cancelEdit() {
+    document.getElementById('addProductForm').reset();
+    document.getElementById('editProductId').value = '';
+    document.getElementById('cancelEdit').style.display = 'none';
   }
 
   // Fungsi Hapus Produk
   function deleteProduct(index) {
-    products.splice(index, 1);
-    localStorage.setItem('products', JSON.stringify(products));
-    displayProducts();
+    if (confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
+      produkList.splice(index, 1);
+      localStorage.setItem('produkList', JSON.stringify(produkList));
+      displayProducts();
+    }
   }
-  // Fungsi Menambah Stok Produk
-function addStock(index) {
-  const product = products[index];
-  const stockToAdd = prompt("Masukkan jumlah stok yang ingin ditambahkan:", "0");
-  
-  if (stockToAdd && !isNaN(stockToAdd)) {
-    product.stock += parseInt(stockToAdd);
-    localStorage.setItem('products', JSON.stringify(products));
-    displayProducts();
-  } else {
-    alert("Input stok tidak valid.");
-  }
-}
-
-// Fungsi Arsipkan Produk
-function archiveProduct(index) {
-  const product = products[index];
-  if (confirm(`Apakah Anda yakin ingin mengarsipkan produk "${product.name}"?`)) {
-    product.status = 'Arsip';  // Set status produk menjadi "Arsip"
-    localStorage.setItem('products', JSON.stringify(products));
-    displayProducts();
-  }
-}
-
-// Fungsi Tampilkan Produk di Tabel
-function displayProducts() {
-  const tableBody = document.getElementById('productTableBody');
-  tableBody.innerHTML = '';
-  products.forEach((product, index) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${product.name}</td>
-      <td>${product.description}</td>
-      <td>${product.price}</td>
-      <td>${product.stock}</td>
-      <td>${product.status || 'Aktif'}</td> <!-- Menampilkan status produk -->
-      <td><img src="${product.image}" alt="${product.name}" width="50"></td>
-      <td>
-        <button class="btn btn-success btn-sm" onclick="addStock(${index})">Tambah Stok</button>
-        <button class="btn btn-warning btn-sm" onclick="editProduct(${index})">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">Delete</button>
-        <button class="btn btn-info btn-sm" onclick="archiveProduct(${index})">Arsipkan</button> <!-- Tombol Arsipkan -->
-      </td>
-    `;
-    tableBody.appendChild(row);
-  });
-}
 
   // Tampilkan Produk saat Halaman Dimuat
   displayProducts();

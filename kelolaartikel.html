@@ -14,42 +14,83 @@
   <link href="css/tiny-slider.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <title>Kelola Artikel - Soléa Flowers</title>
+  <style>
+    /* Custom CSS untuk responsivitas dan tampilan tombol */
+    .table-responsive {
+      overflow-x: auto;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .table td img {
+      max-width: 60px;
+      height: auto;
+    }
+    .btn-action {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    @media (max-width: 768px) {
+      .table th, .table td {
+        font-size: 14px;
+        max-width: 150px;
+      }
+      .btn-action {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+      .table td img {
+        max-width: 40px;
+      }
+    }
+    @media (max-width: 576px) {
+      .table th, .table td {
+        font-size: 12px;
+        max-width: 100px;
+      }
+      .btn-action {
+        padding: 2px 6px;
+        font-size: 10px;
+      }
+      .table td img {
+        max-width: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
 <!-- Start Header/Navigation -->
-<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                        <li><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
-                        <li><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
-                        <li class="active"><a class="nav-link" href="kelolaartikel.html">Kelola Artikel</a></li>
-					</ul>
-
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<img src="images/user.svg" alt="User Icon">
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="index.html">User Here</a></li>
-								<li><a class="dropdown-item" href="dashboardadmin.html">Admin Here</a></li>
-							</ul>
-						</li>	
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
-					</ul>
-				</div>
-			</div>	
-		</nav>
+<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
+        <li><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
+        <li class="active"><a class="nav-link" href="kelolaartikel.html">Kelola Artikel</a></li>
+      </ul>
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="images/user.svg" alt="User Icon">
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- End Header/Navigation -->
 
 <!-- Start Hero Section (Kelola Artikel) -->
@@ -59,7 +100,7 @@
       <div class="col-lg-5">
         <div class="intro-excerpt">
           <h1>Kelola Artikel</h1>
-          <p class="mb-4">Add, edit, or remove articles from the catalog.</p>
+          <p class="mb-4">Tambah, edit, atau hapus artikel dari katalog.</p>
         </div>
       </div>
       <div class="col-lg-7">
@@ -75,20 +116,30 @@
 <!-- Start Form Tambah Artikel -->
 <div class="container py-5">
   <h3>Tambah Artikel Baru</h3>
-  <form id="addArticleForm">
-    <div class="mb-3">
+  <form id="addArticleForm" class="row g-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="articleTitle" class="form-label">Judul Artikel</label>
       <input type="text" class="form-control" id="articleTitle" required>
     </div>
-    <div class="mb-3">
+    <div class="col-12 col-md-6 mb-3">
+      <label for="articleAuthor" class="form-label">Penulis</label>
+      <input type="text" class="form-control" id="articleAuthor" required>
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="articleDate" class="form-label">Tanggal Publikasi</label>
+      <input type="date" class="form-control" id="articleDate" required>
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="articleImage" class="form-label">URL Gambar</label>
+      <input type="url" class="form-control" id="articleImage" required>
+    </div>
+    <div class="col-12 mb-3">
       <label for="articleContent" class="form-label">Isi Artikel</label>
       <textarea class="form-control" id="articleContent" rows="5" required></textarea>
     </div>
-    <div class="mb-3">
-      <label for="articleLink" class="form-label">Link Artikel (URL)</label>
-      <input type="url" class="form-control" id="articleLink" required>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Tambah Artikel</button>
     </div>
-    <button type="submit" class="btn btn-primary">Tambah Artikel</button>
   </form>
 </div>
 <!-- End Form Tambah Artikel -->
@@ -96,26 +147,30 @@
 <!-- Start Tabel Artikel -->
 <div class="container py-5">
   <h3>Daftar Artikel</h3>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Judul Artikel</th>
-        <th>Isi Artikel</th>
-        <th>Link Artikel</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody id="articleTableBody">
-      <!-- Data Artikel akan dimuat di sini -->
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Judul</th>
+          <th>Penulis</th>
+          <th>Tanggal</th>
+          <th>Gambar</th>
+          <th>Isi</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="articleTableBody">
+        <!-- Data Artikel akan dimuat di sini -->
+      </tbody>
+    </table>
+  </div>
 </div>
 <!-- End Tabel Artikel -->
 
 <!-- Modal Detail Artikel -->
 <div class="modal fade" id="articleDetailModal" tabindex="-1" aria-labelledby="articleDetailModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="articleDetailModalLabel">Detail Artikel</h5>
@@ -125,7 +180,7 @@
         <!-- Detail Artikel akan ditampilkan di sini -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>
@@ -144,14 +199,16 @@
     articles.forEach((article, index) => {
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${index + 1}</td>
+        <td>${article.id}</td>
         <td>${article.title}</td>
+        <td>${article.author}</td>
+        <td>${article.date}</td>
+        <td><img src="${article.image}" alt="${article.title}" style="max-width: 60px;"></td>
         <td>${article.content.substring(0, 50)}...</td>
-        <td><a href="${article.link}" target="_blank">View Article</a></td>
         <td>
-          <button class="btn btn-info btn-sm" onclick="viewArticleDetail(${index})">View Detail</button>
-          <button class="btn btn-warning btn-sm" onclick="editArticle(${index})">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteArticle(${index})">Delete</button>
+          <button class="btn btn-info btn-sm btn-action" onclick="viewArticleDetail(${index})"><i class="fas fa-eye"></i> Lihat</button>
+          <button class="btn btn-warning btn-sm btn-action" onclick="editArticle(${index})"><i class="fas fa-edit"></i> Edit</button>
+          <button class="btn btn-danger btn-sm btn-action" onclick="deleteArticle(${index})"><i class="fas fa-trash"></i> Hapus</button>
         </td>
       `;
       tableBody.appendChild(row);
@@ -162,13 +219,18 @@
   document.getElementById('addArticleForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const articleTitle = document.getElementById('articleTitle').value;
+    const articleAuthor = document.getElementById('articleAuthor').value;
+    const articleDate = document.getElementById('articleDate').value;
+    const articleImage = document.getElementById('articleImage').value;
     const articleContent = document.getElementById('articleContent').value;
-    const articleLink = document.getElementById('articleLink').value;
 
     const newArticle = {
+      id: articles.length > 0 ? Math.max(...articles.map(a => a.id)) + 1 : 1,
       title: articleTitle,
-      content: articleContent,
-      link: articleLink,
+      author: articleAuthor,
+      date: articleDate,
+      image: articleImage,
+      content: articleContent
     };
 
     articles.push(newArticle);
@@ -181,10 +243,11 @@
   function editArticle(index) {
     const article = articles[index];
     document.getElementById('articleTitle').value = article.title;
+    document.getElementById('articleAuthor').value = article.author;
+    document.getElementById('articleDate').value = article.date;
+    document.getElementById('articleImage').value = article.image;
     document.getElementById('articleContent').value = article.content;
-    document.getElementById('articleLink').value = article.link;
 
-    // Hapus Artikel yang Lama dan Ganti dengan yang Baru
     articles.splice(index, 1);
     localStorage.setItem('articles', JSON.stringify(articles));
     displayArticles();
@@ -205,8 +268,10 @@
     const articleDetailBody = document.getElementById('articleDetailBody');
     articleDetailBody.innerHTML = `
       <h5>${article.title}</h5>
+      <p><strong>Penulis:</strong> ${article.author}</p>
+      <p><strong>Tanggal:</strong> ${article.date}</p>
+      <p><img src="${article.image}" alt="${article.title}" class="img-fluid mb-3"></p>
       <p>${article.content}</p>
-      <p><a href="${article.link}" target="_blank">Baca Artikel Lengkap</a></p>
     `;
     const modal = new bootstrap.Modal(document.getElementById('articleDetailModal'));
     modal.show();
@@ -215,5 +280,3 @@
   // Tampilkan Artikel saat Halaman Dimuat
   displayArticles();
 </script>
-</body>
-</html>

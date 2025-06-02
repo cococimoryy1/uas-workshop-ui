@@ -1,48 +1,305 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Detail Produk</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="images/bunga.png">
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Detail Produk | Soléa Flowers</title>
   <style>
-    img {
-      max-width: 300px;
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
     }
     .produk-detail {
+      margin: 40px auto;
+      padding: 30px;
+      background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .produk-image {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .produk-detail h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 20px;
+    }
+    .produk-detail p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    .produk-detail strong {
+      color: #333;
+    }
+    .btn-custom {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 5px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+    .benefits {
+      background-color: #2a6649;
+      color: #fff;
       padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .benefits h4 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .benefits ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .benefits ul li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .benefits ul li::before {
+      content: "✔";
+      margin-right: 10px;
+    }
+    .rating {
+      color: #c45c5c;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 768px) {
+      .produk-detail {
+        margin: 20px;
+        padding: 20px;
+      }
+      .produk-detail h1 {
+        font-size: 1.8rem;
+      }
+      .btn-custom {
+        width: 100%;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="shop.html">Shop</a></li>
+          <li><a class="nav-link" href="history.html">Riwayat Pembelian</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+        </ul>
+        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="images/user.svg" alt="User Icon">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="about.html">About Us</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="cart.html"><img src="images/cart.svg" alt="Cart"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Header/Navigation -->
 
-  <div class="produk-detail" id="produk-detail">
-    Memuat detail produk...
+  <!-- Detail Produk Section -->
+  <div class="container">
+    <div class="produk-detail" id="produk-detail">
+      <div class="row">
+        <!-- Kolom Gambar -->
+        <div class="col-12 col-md-6 mb-4">
+          <img id="produk-gambar" src="" alt="" class="produk-image img-fluid">
+        </div>
+        <!-- Kolom Detail -->
+        <div class="col-12 col-md-6">
+          <h1 id="produk-nama"></h1>
+          <p id="produk-harga"><strong>Harga:</strong></p>
+          <p id="produk-stok"><strong>Stok:</strong></p>
+          <p id="produk-deskripsi"><strong>Deskripsi:</strong></p>
+          <div class="mt-4">
+            <button class="btn btn-custom btn-primary">Beli Sekarang</button>
+            <button class="btn btn-custom btn-outline-primary">Tambah ke Keranjang</button>
+            <a href="shop.html" class="btn btn-custom btn-secondary mt-2">← Kembali ke Daftar Produk</a>
+          </div>
+          <!-- <div class="rating mt-3">
+            <span>★★★★☆</span> 4.5 (27 ulasan)
+            <a href="#" class="text-muted ms-2">Tulis Ulasan</a>
+          </div> -->
+          <div class="benefits mt-4">
+            <h4>Manfaat Produk</h4>
+            <ul>
+              <li>100% Bunga Segar</li>
+              <li>Sumber Keindahan Alami</li>
+              <li>Bebas Pengawet</li>
+              <li>Dirangkai dengan Cinta</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get("id"));
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container relative">
+      <div class="sofa-img">
+        <img src="images/bunga.png" alt="Image" class="img-fluid">
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="subscription-form">
+            <h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+            <form action="#" class="row g-3">
+              <div class="col-auto">
+                <input type="text" class="form-control" placeholder="Enter your name">
+              </div>
+              <div class="col-auto">
+                <input type="email" class="form-control" placeholder="Enter your email">
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-primary">
+                  <span class="fa fa-paper-plane"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4">
+          <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Soléa Flowers<span>.</span></a></div>
+          <p class="mb-4">Temukan keindahan bunga segar yang dirangkai dengan ketulusan untuk setiap momen istimewa. Koleksi kami hadir untuk menghadirkan kehangatan, kebahagiaan, dan kesan yang tak terlupakan dalam setiap kesempatan.</p>
+          <ul class="list-unstyled custom-social">
+            <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <div class="row links-wrap">
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="about.html">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Knowledge base</a></li>
+                <li><a href="#">Live chat</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Our team</a></li>
+                <li><a href="#">Leadership</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Nordic Chair</a></li>
+                <li><a href="#">Kruzo Aero</a></li>
+                <li><a href="#">Ergonomic Chair</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    const produkList = JSON.parse(localStorage.getItem("produkList"));
-    const produk = produkList.find(p => p.id === id);
+  <!-- Scripts -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+<script>
+  // Ambil ID produk dari URL
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id"));
 
-    const container = document.getElementById("produk-detail");
+  // Ambil daftar produk dari localStorage
+  const produkList = JSON.parse(localStorage.getItem("produkList")) || [];
+  const produk = produkList.find(p => p.id === id);
 
-    if (produk) {
-      container.innerHTML = `
-        <h1>${produk.nama}</h1>
-        <img src="${produk.gambar}" alt="${produk.nama}">
-        <p><strong>Harga:</strong> Rp${produk.harga.toLocaleString()}</p>
-        <p><strong>Stok:</strong> ${produk.stok}</p>
-        <p><strong>Deskripsi:</strong> ${produk.deskripsi}</p>
-        <a href="index.html">← Kembali ke daftar produk</a>
-      `;
+  // Tampilkan detail produk
+  if (produk) {
+    document.getElementById("produk-nama").textContent = produk.nama;
+    document.getElementById("produk-gambar").src = produk.gambar;
+    document.getElementById("produk-gambar").alt = produk.nama;
+    document.getElementById("produk-harga").innerHTML = `<strong>Harga:</strong> Rp${produk.harga.toLocaleString()}`;
+    document.getElementById("produk-stok").innerHTML = `<strong>Stok:</strong> ${produk.stok}`;
+    document.getElementById("produk-deskripsi").innerHTML = `<strong>Deskripsi:</strong> ${produk.deskripsi}`;
+  } else {
+    document.getElementById("produk-detail").innerHTML = "<p>Produk tidak ditemukan.</p>";
+  }
+
+  // Fungsi untuk menambahkan produk ke keranjang
+  function tambahKeKeranjang() {
+    const keranjang = JSON.parse(localStorage.getItem("cart")) || [];
+    const itemAda = keranjang.find(item => item.name === produk.nama);
+
+    if (itemAda) {
+      itemAda.quantity += 1;
     } else {
-      container.innerHTML = "<p>Produk tidak ditemukan.</p>";
+      keranjang.push({
+        name: produk.nama,
+        price: produk.harga,
+        image: produk.gambar,
+        quantity: 1
+      });
     }
-  </script>
 
+    localStorage.setItem("cart", JSON.stringify(keranjang));
+    alert(`${produk.nama} telah ditambahkan ke keranjang!`);
+  }
+
+  // Event listener untuk tombol "Tambah ke Keranjang"
+  document.querySelector(".btn-outline-primary").addEventListener("click", () => {
+    tambahKeKeranjang();
+    window.location.href = "cart.html"; // Arahkan ke halaman keranjang
+  });
+
+  // Event listener untuk tombol "Beli Sekarang"
+  document.querySelector(".btn-primary").addEventListener("click", () => {
+    tambahKeKeranjang();
+    window.location.href = "checkout.html"; // Arahkan ke halaman checkout
+  });
+</script>
 </body>
 </html>
