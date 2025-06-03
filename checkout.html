@@ -1,10 +1,3 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,673 +5,650 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Untree.co">
   <link rel="shortcut icon" href="images/bunga.png">
-
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
-		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<title>Soléa Flowers</title>
-	</head>
-	<style>
-	/* Container utama */
-	.checkout-container {
-		display: flex;
-		justify-content: space-between;
-		gap: 30px;
-		padding: 20px;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	/* Bagian Detail Pembayaran dan Pesanan Anda */
-	.payment-details,
-	.order-summary {
-		flex: 1;
-		background: #fff;
-		border: 1px solid #e0e0e0;
-		border-radius: 5px;
-		padding: 20px;
-	}
-
-	/* Judul Seksi */
-	.section-title {
-		font-size: 1.5rem;
-		font-weight: 600;
-		color: #333;
-		margin-bottom: 20px;
-	}
-
-	/* Formulir */
-	.form-wrapper,
-	.order-wrapper {
-		width: 100%;
-	}
-
-	.form-group-custom {
-		margin-bottom: 15px;
-	}
-
-	.form-label {
-		font-size: 1rem;
-		color: #333;
-		margin-bottom: 5px;
-		display: block;
-	}
-
-	.required {
-		color: #ff0000;
-	}
-
-	.form-input,
-	.form-select {
-		width: 100%;
-		padding: 10px;
-		font-size: 1rem;
-		border: 1px solid #e0e0e0;
-		border-radius: 5px;
-		box-sizing: border-box;
-	}
-
-	.form-textarea {
-		width: 100%;
-		padding: 10px;
-		font-size: 1rem;
-		border: 1px solid #e0e0e0;
-		border-radius: 5px;
-		min-height: 100px;
-		resize: vertical;
-	}
-
-	/* Tombol Terapkan Kode */
-	.apply-code-btn {
-		padding: 8px 15px;
-		font-size: 0.9rem;
-		color: #fff;
-		background-color: #000;
-		border: none;
-		border-radius: 5px;
-		margin-top: 5px;
-		cursor: pointer;
-	}
-
-	.apply-code-btn:hover {
-		background-color: #333;
-	}
-
-	/* Tabel Pesanan */
-	.order-table {
-		width: 100%;
-		border-collapse: collapse;
-		margin-bottom: 20px;
-	}
-
-	.order-table th,
-	.order-table td {
-		padding: 10px;
-		text-align: left;
-		border-bottom: 1px solid #e0e0e0;
-	}
-
-	.order-table th {
-		font-weight: 600;
-		color: #333;
-	}
-
-	.table-label {
-		font-weight: 600;
-		color: #333;
-	}
-
-	.table-value {
-		color: #333;
-	}
-
-	.total-value {
-		font-weight: 600;
-	}
-
-	/* Gambar QRIS */
-	.qris-image {
-		max-width: 100%;
-		height: auto;
-		margin-top: 5px;
-	}
-
-	/* Logo Metode Pembayaran */
-	.payment-logo {
-		display: none; /* Diatur ulang oleh JavaScript */
-		margin-top: 10px;
-	}
-
-	.payment-logo img {
-		vertical-align: middle;
-		max-width: 50px;
-		max-height: 50px;
-		border: 1px solid #e0e0e0;
-		border-radius: 5px;
-	}
-
-	/* Tombol Proses Pembayaran */
-	.payment-button-group {
-		margin-top: 10px;
-	}
-
-	.process-payment-btn {
-		width: 50%;
-		padding: 10px;
-		font-size: 1rem;
-		color: #fff;
-		background-color: #000;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-	}
-
-	.process-payment-btn:hover {
-		background-color: #333;
-	}
-
-	.btn-black {
-		font-size: 1rem;
-		border-radius: 5px;
-	}
-
-	.w-50 {
-		width: 50% !important;
-	}
-
-	/* Responsivitas */
-	@media (max-width: 768px) {
-		.checkout-container {
-		flex-direction: column;
-		gap: 20px;
-		padding: 15px;
-		}
-
-		.payment-details,
-		.order-summary {
-		padding: 15px;
-		}
-
-		.section-title {
-		font-size: 1.3rem;
-		}
-
-		.form-input,
-		.form-select,
-		.form-textarea {
-		font-size: 0.9rem;
-		}
-
-		.apply-code-btn,
-		.process-payment-btn {
-		width: 100%;
-		font-size: 0.9rem;
-		}
-
-		.btn-black {
-		font-size: 0.9rem;
-		}
-
-		.payment-button-group {
-		margin-top: 5px;
-		}
-
-		.payment-logo img {
-		max-width: 40px;
-		max-height: 40px;
-		}
-	}
-	</style>
-
-	<body>
-
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li><a class="nav-link" href="index.html">Home</a></li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<!-- <li><a class="nav-link" href="koleksi.html">Koleksi</a></li> -->
-						<li><a class="nav-link" href="history.html">Riwayat Pembelian</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-					</ul>
-
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<img src="images/user.svg" alt="User Icon">
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="about.html">About Us</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
-							</ul>
-						</li>	
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
-					</ul>
-				</div>
-			</div>
-				
-		</nav>
-		<!-- End Header/Navigation -->
-
-		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Checkout</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
-
-		<div class="untree_co-section">
-		    <div class="container">
-		      <div class="row mb-5">
-		        <div class="col-md-12">
-		          <div class="border p-4 rounded" role="alert">
-		            Returning customer? <a href="#">Click here</a> to login
-		          </div>
-		        </div>
-		      </div>
-			  <div class="row">
-				<div class="checkout-container">
-				<div class="payment-details">
-					<h2 class="section-title">Detail Pembayaran</h2>
-					<div class="form-wrapper">
-					<form id="checkout-form">
-						<div class="form-group-custom">
-						<label for="c_name" class="form-label">Nama Lengkap <span class="required">*</span></label>
-						<input type="text" class="form-input" id="c_name" name="c_name" required>
-						</div>
-						<div class="form-group-custom">
-						<label for="c_address" class="form-label">Detail Alamat <span class="required">*</span></label>
-						<input type="text" class="form-input" id="c_address" name="c_address" placeholder="Alamat lengkap, termasuk kecamatan di Surabaya" required>
-						</div>
-						<div class="form-group-custom">
-						<label for="c_phone" class="form-label">Nomor Telepon <span class="required">*</span></label>
-						<input type="text" class="form-input" id="c_phone" name="c_phone" placeholder="Nomor Telepon" required>
-						</div>
-						<div class="form-group-custom">
-						<label for="c_email_address" class="form-label">Alamat Email <span class="required">*</span></label>
-						<input type="email" class="form-input" id="c_email_address" name="c_email_address" required>
-						</div>
-						<div class="form-group-custom">
-						<label for="c_referral_code" class="form-label">Kode Referral (Opsional)</label>
-						<input type="text" class="form-input" id="c_referral_code" name="c_referral_code" placeholder="Masukkan kode referral">
-						<button type="button" class="apply-code-btn" id="apply-referral">Terapkan Kode</button>
-						</div>
-						<div class="form-group-custom">
-						<label for="c_order_notes" class="form-label">Catatan Pesanan</label>
-						<textarea name="c_order_notes" id="c_order_notes" class="form-textarea" placeholder="Tulis catatan di sini..."></textarea>
-						</div>
-					</form>
-					</div>
-				</div>
-
-				<div class="order-summary">
-				<h2 class="section-title">Pesanan Anda</h2>
-				<div class="order-wrapper">
-					<table class="order-table">
-					<thead>
-						<tr>
-						<th>Produk</th>
-						<th>Total</th>
-						</tr>
-					</thead>
-					<tbody id="order-items">
-						<!-- Menampilkan item keranjang secara dinamis dengan JavaScript -->
-					</tbody>
-					<tr>
-						<td class="text-black font-weight-bold"><strong>Subtotal Keranjang</strong></td>
-						<td class="text-black" id="cart_subtotal">Rp 0</td>
-					</tr>
-					<tr>
-						<td class="text-black font-weight-bold"><strong>Diskon Referral</strong></td>
-						<td class="text-black" id="referral_discount">Rp 0</td>
-					</tr>
-					<tr>
-						<td class="text-black font-weight-bold"><strong>Total Pesanan</strong></td>
-						<td class="text-black font-weight-bold"><strong id="order_total">Rp 0</strong></td>
-					</tr>
-					</table>
-
-					<!-- Pilihan Metode Pembayaran -->
-					<div class="form-group">
-					<label for="payment_method" class="text-black">Metode Pembayaran <span class="text-danger">*</span></label>
-					<select id="payment_method" class="form-control" required>
-						<option value="qris">QRIS</option>
-						<option value="cod">COD (Bayar di Tempat)</option>
-						<option value="ovo">OVO</option>
-						<option value="gopay">GoPay</option>
-						<option value="bca">Bank BCA</option>
-					</select>
-					</div>
-
-					<!-- Logo Metode Pembayaran -->
-					<div class="form-group payment-logo" id="payment_logo" style="display:none;">
-					<label class="text-black">Logo Metode Pembayaran</label>
-					<img id="payment_logo_img" src="" alt="Payment Logo" style="width: 50px; height: 50px; margin-top: 5px;">
-					</div>
-
-					<!-- QRIS Payment -->
-					<div class="form-group" id="qris_payment" style="display:none;">
-					<label for="qris_code" class="text-black">Scan Kode QR untuk Pembayaran</label>
-					<img src="https://i.pinimg.com/736x/d8/11/10/d81110f74b45542aa26eddc290592ed8.jpg" alt="QRIS Code" class="img-fluid">
-					</div>
-
-					<!-- Kode Pembayaran Khusus -->
-					<div class="form-group" id="payment_code" style="display:none;">
-					<label class="text-black">Kode Pembayaran</label>
-					<p id="payment_code_value" class="text-black"></p>
-					</div>
-
-					<!-- Tombol Proses Pembayaran -->
-					<div class="form-group payment-button-group">
-					<button class="btn btn-black py-2 w-50" type="submit" form="checkout-form" id="process-payment">Proses Pembayaran</button>
-					</div>
-				</div>
-				</div>
-			</div> 
-		</div>
-	</div>
-	<!-- </form> -->
-	</div>
-</div>
-
-		<!-- Start Footer Section -->
-		<footer class="footer-section">
-			<div class="container relative">
-
-				<div class="sofa-img">
-					<img src="images/bunga.png" alt="Image" class="img-fluid">
-				</div>
-
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
-
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
-
-				<div class="row g-5 mb-5">
-					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
-
-						<ul class="list-unstyled custom-social">
-							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-8">
-						<div class="row links-wrap">
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-					</div>
-				</div>
-
-			</div>
-		</footer>
-		<!-- End Footer Section -->	
-
-
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/tiny-slider.js"></script>
-		<script src="js/custom.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Inisialisasi kode referral valid (simulasi database)
-    const validReferralCodes = ['SOLF10', 'BUNGA20', 'FLOWER15'];
-    localStorage.setItem('validReferralCodes', JSON.stringify(validReferralCodes));
-
-    // Ambil subtotal dan total dari localStorage
-    let subtotal = parseInt(localStorage.getItem('subtotal')) || 0;
-    let totalAfterDiscount = parseInt(localStorage.getItem('totalAfterDiscount')) || subtotal;
-    let referralDiscount = 0;
-    let paymentCode = '';
-
-    // Tampilkan nilai awal
-    document.getElementById('cart_subtotal').innerText = formatRupiah(subtotal);
-    document.getElementById('order_total').innerText = formatRupiah(totalAfterDiscount);
-    renderOrderItems();
-
-    // Objek untuk mapping logo metode pembayaran
-    const paymentLogos = {
-      qris: 'https://i.pinimg.com/736x/98/88/27/988827ba70ba45ec5fb9c36423d8d09e.jpg',
-      cod: 'https://i.pinimg.com/736x/40/60/bf/4060bf7ee3ca7637a713562ae13f1038.jpg',
-      ovo: 'https://i.pinimg.com/736x/41/25/e1/4125e1126d4042dfd278b30f20482926.jpg',
-      gopay: 'https://i.pinimg.com/736x/fe/ce/b2/feceb2ca508603b06c2f7ba18a5d018d.jpg',
-      bca: 'https://i.pinimg.com/736x/0b/ed/5c/0bed5c44c43dc1efd1cbf6acf3aa1d89.jpg'
-    };
-
-    // Fungsi untuk menghasilkan kode pembayaran acak (simulasi)
-    function generatePaymentCode() {
-      return Math.floor(100000000000 + Math.random() * 900000000000).toString();
-    }
-
-    // Event listener untuk metode pembayaran
-    const paymentMethodSelect = document.getElementById('payment_method');
-    if (paymentMethodSelect) {
-      paymentMethodSelect.addEventListener('change', function () {
-        const paymentMethod = this.value;
-        const logoElement = document.getElementById('payment_logo');
-        const logoImg = document.getElementById('payment_logo_img');
-        const qrisPayment = document.getElementById('qris_payment');
-        const paymentCodeElement = document.getElementById('payment_code');
-        const paymentCodeValue = document.getElementById('payment_code_value');
-
-        // Reset tampilan
-        logoElement.style.display = 'none';
-        qrisPayment.style.display = 'none';
-        paymentCodeElement.style.display = 'none';
-
-        console.log('Selected payment method:', paymentMethod); // Debugging
-
-        // Tampilkan logo
-        if (paymentLogos[paymentMethod] && logoImg) {
-          logoImg.src = paymentLogos[paymentMethod];
-          logoElement.style.display = 'block';
-          console.log('Logo URL set to:', paymentLogos[paymentMethod]); // Debugging
-        } else {
-          console.log('Logo not found for method:', paymentMethod); // Debugging
-        }
-
-        // Tampilkan QRIS atau kode pembayaran
-        if (paymentMethod === 'qris') {
-          qrisPayment.style.display = 'block';
-        } else if (['ovo', 'gopay', 'bca'].includes(paymentMethod)) {
-          paymentCode = generatePaymentCode();
-          paymentCodeValue.textContent = paymentCode;
-          paymentCodeElement.style.display = 'block';
-        }
-
-        // Simpan kode pembayaran untuk transaksi
-        localStorage.setItem('paymentCode', paymentCode);
-      });
-    } else {
-      console.log('Payment method select element not found'); // Debugging
-    }
-
-    // Event listener untuk tombol terapkan kode referral
-    const applyReferralButton = document.getElementById('apply-referral');
-    if (applyReferralButton) {
-      applyReferralButton.addEventListener('click', function () {
-        const referralCode = document.getElementById('c_referral_code').value.trim().toUpperCase();
-        const validCodes = JSON.parse(localStorage.getItem('validReferralCodes')) || [];
-
-        if (validCodes.includes(referralCode)) {
-          referralDiscount = subtotal * 0.1; // Diskon 10%
-          totalAfterDiscount = subtotal - referralDiscount;
-          document.getElementById('referral_discount').innerText = formatRupiah(referralDiscount);
-          document.getElementById('order_total').innerText = formatRupiah(totalAfterDiscount);
-          alert('Kode referral valid! Diskon 10% diterapkan.');
-        } else {
-          referralDiscount = 0;
-          totalAfterDiscount = subtotal;
-          document.getElementById('referral_discount').innerText = formatRupiah(0);
-          document.getElementById('order_total').innerText = formatRupiah(totalAfterDiscount);
-          alert('Kode referral tidak valid.');
-        }
-        localStorage.setItem('totalAfterDiscount', totalAfterDiscount);
-      });
-    }
-
-    // Event listener untuk proses pembayaran
-    const processPaymentButton = document.getElementById('process-payment');
-    if (processPaymentButton) {
-      processPaymentButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        const form = document.getElementById('checkout-form');
-        if (form.checkValidity()) {
-          saveTransaction();
-        } else {
-          form.reportValidity();
-        }
-      });
-    }
-  });
-
-  // Fungsi untuk format Rupiah
-  function formatRupiah(angka) {
-    return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Soléa Flowers</title>
+</head>
+<style>
+/* Container utama */
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Bagian Detail Pembayaran dan Pesanan Anda */
+.payment-details,
+.order-summary {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Judul Seksi */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Formulir */
+.form-wrapper,
+.order-wrapper {
+  width: 100%;
+}
+
+.form-group-custom {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.required {
+  color: #ff0000;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Tombol Terapkan Kode */
+.apply-code-btn {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.apply-code-btn:hover {
+  background-color: #333;
+}
+
+/* Tabel Pesanan */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-table th,
+.order-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.order-table th {
+  font-weight: 600;
+  color: #333;
+}
+
+.table-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.table-value {
+  color: #333;
+}
+
+.total-value {
+  font-weight: 600;
+}
+
+/* Gambar QRIS */
+.qris-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 5px;
+}
+
+/* Logo Metode Pembayaran */
+.payment-logo {
+  display: none; /* Diatur ulang oleh JavaScript */
+  margin-top: 10px;
+}
+
+.payment-logo img {
+  vertical-align: middle;
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+/* Tombol Proses Pembayaran */
+.payment-button-group {
+  margin-top: 10px;
+}
+
+.process-payment-btn {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.process-payment-btn:hover {
+  background-color: #333;
+}
+
+.btn-black {
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
   }
 
-  // Fungsi untuk menampilkan item pesanan di tabel
-  function renderOrderItems() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const orderItemsContainer = document.getElementById('order-items');
-    orderItemsContainer.innerHTML = '';
-
-    cart.forEach(item => {
-      orderItemsContainer.innerHTML += `
-        <tr>
-          <td class="product-name">${item.name} x${item.quantity}</td>
-          <td class="product-total">${formatRupiah(item.price * item.quantity)}</td>
-        </tr>
-      `;
-    });
+  .payment-details,
+  .order-summary {
+    padding: 15px;
   }
 
-  // Fungsi untuk menyimpan transaksi ke localStorage
-  function saveTransaction() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const subtotal = document.getElementById('cart_subtotal').innerText;
-    const total = document.getElementById('order_total').innerText;
-    const paymentMethod = document.getElementById('payment_method').value;
-    const paymentCode = localStorage.getItem('paymentCode') || 'Tidak ada';
-    const name = document.getElementById('c_name').value;
-    const address = document.getElementById('c_address').value;
-    const phone = document.getElementById('c_phone').value;
-    const email = document.getElementById('c_email_address').value;
-    const referralCode = document.getElementById('c_referral_code').value.trim();
-    const orderNotes = document.getElementById('c_order_notes').value;
+  .section-title {
+    font-size: 1.3rem;
+  }
 
-    const transaction = {
-      date: new Date().toLocaleString(),
-      items: cart,
-      subtotal: subtotal,
-      total: total,
-      paymentMethod: paymentMethod,
-      paymentCode: paymentCode,
-      referralCode: referralCode || 'Tidak ada',
-      customer: {
-        name: name,
-        address: address,
-        phone: phone,
-        email: email,
-        orderNotes: orderNotes
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 0.9rem;
+  }
+
+  .apply-code-btn,
+  .process-payment-btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .btn-black {
+    font-size: 0.9rem;
+  }
+
+  .payment-button-group {
+    margin-top: 5px;
+  }
+
+  .payment-logo img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+}
+</style>
+
+<body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="shop.html">Shop</a></li>
+          <li><a class="nav-link" href="history.html">Riwayat Pembelian</a></li>
+          <li><a class="nav-link" href="services.html">Services</a></li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+        </ul>
+        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="images/user.svg" alt="User Icon">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="about.html">About Us</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Header/Navigation -->
+
+  <!-- Start Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1>Checkout</h1>
+          </div>
+        </div>
+        <div class="col-lg-7"></div>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero Section -->
+
+  <div class="untree_co-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <div class="border p-4 rounded" role="alert">
+            Returning customer? <a href="#">Click here</a> to login
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="checkout-container">
+          <div class="payment-details">
+            <h2 class="section-title">Detail Pembayaran</h2>
+            <div class="form-wrapper">
+              <form id="checkout-form">
+                <div class="form-group-custom">
+                  <label for="c_name" class="form-label">Nama Lengkap <span class="required">*</span></label>
+                  <input type="text" class="form-input" id="c_name" name="c_name" required>
+                </div>
+                <div class="form-group-custom">
+                  <label for="c_address" class="form-label">Detail Alamat <span class="required">*</span></label>
+                  <input type="text" class="form-input" id="c_address" name="c_address" placeholder="Alamat lengkap, termasuk kecamatan di Surabaya" required>
+                </div>
+                <div class="form-group-custom">
+                  <label for="c_phone" class="form-label">Nomor Telepon <span class="required">*</span></label>
+                  <input type="text" class="form-input" id="c_phone" name="c_phone" placeholder="Nomor Telepon" required>
+                </div>
+                <div class="form-group-custom">
+                  <label for="c_email_address" class="form-label">Alamat Email <span class="required">*</span></label>
+                  <input type="email" class="form-input" id="c_email_address" name="c_email_address" required>
+                </div>
+                <div class="form-group-custom">
+                  <label for="c_referral_code" class="form-label">Kode Referral (Opsional)</label>
+                  <input type="text" class="form-input" id="c_referral_code" name="c_referral_code" placeholder="Masukkan kode referral">
+                  <button type="button" class="apply-code-btn" id="apply-referral">Terapkan Kode</button>
+                </div>
+                <div class="form-group-custom">
+                  <label for="c_order_notes" class="form-label">Catatan Pesanan</label>
+                  <textarea name="c_order_notes" id="c_order_notes" class="form-textarea" placeholder="Tulis catatan di sini..."></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="order-summary">
+            <h2 class="section-title">Pesanan Anda</h2>
+            <div class="order-wrapper">
+              <table class="order-table">
+                <thead>
+                  <tr>
+                    <th>Produk</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="order-items">
+                  <!-- Menampilkan item keranjang secara dinamis dengan JavaScript -->
+                </tbody>
+                <tr>
+                  <td class="text-black font-weight-bold"><strong>Subtotal Keranjang</strong></td>
+                  <td class="text-black" id="cart_subtotal">Rp 0</td>
+                </tr>
+                <tr>
+                  <td class="text-black font-weight-bold"><strong>Diskon Referral</strong></td>
+                  <td class="text-black" id="referral_discount">Rp 0</td>
+                </tr>
+                <tr>
+                  <td class="text-black font-weight-bold"><strong>Total Pesanan</strong></td>
+                  <td class="text-black font-weight-bold"><strong id="order_total">Rp 0</strong></td>
+                </tr>
+              </table>
+
+              <!-- Pilihan Metode Pembayaran -->
+              <div class="form-group">
+                <label for="payment_method" class="text-black">Metode Pembayaran <span class="text-danger">*</span></label>
+                <select id="payment_method" class="form-control" required>
+                  <option value="qris">QRIS</option>
+                  <option value="cod">COD (Bayar di Tempat)</option>
+                  <option value="ovo">OVO</option>
+                  <option value="gopay">GoPay</option>
+                  <option value="bca">Bank BCA</option>
+                </select>
+              </div>
+
+              <!-- Logo Metode Pembayaran -->
+              <div class="form-group payment-logo" id="payment_logo" style="display:none;">
+                <label class="text-black">Logo Metode Pembayaran</label>
+                <img id="payment_logo_img" src="" alt="Payment Logo" style="width: 50px; height: 50px; margin-top: 5px;">
+              </div>
+
+              <!-- QRIS Payment -->
+              <div class="form-group" id="qris_payment" style="display:none;">
+                <label for="qris_code" class="text-black">Scan Kode QR untuk Pembayaran</label>
+                <img src="https://i.pinimg.com/736x/d8/11/10/d81110f74b45542aa26eddc290592ed8.jpg" alt="QRIS Code" class="img-fluid">
+              </div>
+
+              <!-- Kode Pembayaran Khusus -->
+              <div class="form-group" id="payment_code" style="display:none;">
+                <label class="text-black">Kode Pembayaran</label>
+                <p id="payment_code_value" class="text-black"></p>
+              </div>
+
+              <!-- Tombol Proses Pembayaran -->
+              <div class="form-group payment-button-group">
+                <button class="btn btn-black py-2 w-50" type="submit" form="checkout-form" id="process-payment">Proses Pembayaran</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Footer Section -->
+  <footer class="footer-section">
+    <div class="container relative">
+      <div class="sofa-img">
+        <img src="images/bunga.png" alt="Image" class="img-fluid">
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="subscription-form">
+            <h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+            <form action="#" class="row g-3">
+              <div class="col-auto">
+                <input type="text" class="form-control" placeholder="Enter your name">
+              </div>
+              <div class="col-auto">
+                <input type="email" class="form-control" placeholder="Enter your email">
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-primary">
+                  <span class="fa fa-paper-plane"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4">
+          <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Soléa Flowers<span>.</span></a></div>
+          <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+          <ul class="list-unstyled custom-social">
+            <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+            <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <div class="row links-wrap">
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Knowledge base</a></li>
+                <li><a href="#">Live chat</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Our team</a></li>
+                <li><a href="#">Leadership</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Nordic Chair</a></li>
+                <li><a href="#">Kruzo Aero</a></li>
+                <li><a href="#">Ergonomic Chair</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer Section -->
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Inisialisasi kode referral valid (simulasi database)
+      const validReferralCodes = ['SOLF10', 'BUNGA20', 'FLOWER15'];
+      localStorage.setItem('validReferralCodes', JSON.stringify(validReferralCodes));
+
+      // Ambil subtotal dan total dari localStorage
+      let subtotal = parseInt(localStorage.getItem('subtotal')) || 0;
+      let totalAfterDiscount = parseInt(localStorage.getItem('totalAfterDiscount')) || subtotal;
+      let referralDiscount = 0;
+      let paymentCode = '';
+
+      // Tampilkan nilai awal
+      document.getElementById('cart_subtotal').innerText = formatRupiah(subtotal);
+      document.getElementById('order_total').innerText = formatRupiah(totalAfterDiscount);
+      renderOrderItems();
+
+      // Objek untuk mapping logo metode pembayaran
+      const paymentLogos = {
+        qris: 'https://i.pinimg.com/736x/98/88/27/988827ba70ba45ec5fb9c36423d8d09e.jpg',
+        cod: 'https://i.pinimg.com/736x/40/60/bf/4060bf7ee3ca7637a713562ae13f1038.jpg',
+        ovo: 'https://i.pinimg.com/736x/41/25/e1/4125e1126d4042dfd278b30f20482926.jpg',
+        gopay: 'https://i.pinimg.com/736x/fe/ce/b2/feceb2ca508603b06c2f7ba18a5d018d.jpg',
+        bca: 'https://i.pinimg.com/736x/0b/ed/5c/0bed5c44c43dc1efd1cbf6acf3aa1d89.jpg'
+      };
+
+      // Fungsi untuk menghasilkan kode pembayaran acak (simulasi)
+      function generatePaymentCode() {
+        return Math.floor(100000000000 + Math.random() * 900000000000).toString();
       }
-    };
 
-    let transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
-    transactionHistory.push(transaction);
-    localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+      // Event listener untuk metode pembayaran
+      const paymentMethodSelect = document.getElementById('payment_method');
+      if (paymentMethodSelect) {
+        paymentMethodSelect.addEventListener('change', function () {
+          const paymentMethod = this.value;
+          const logoElement = document.getElementById('payment_logo');
+          const logoImg = document.getElementById('payment_logo_img');
+          const qrisPayment = document.getElementById('qris_payment');
+          const paymentCodeElement = document.getElementById('payment_code');
+          const paymentCodeValue = document.getElementById('payment_code_value');
 
-    // Kosongkan keranjang setelah transaksi
-    localStorage.removeItem('cart');
-    localStorage.removeItem('subtotal');
-    localStorage.removeItem('totalAfterDiscount');
-    localStorage.removeItem('paymentCode');
+          // Reset tampilan
+          logoElement.style.display = 'none';
+          qrisPayment.style.display = 'none';
+          paymentCodeElement.style.display = 'none';
 
-    window.location.href = 'thankyou.html';
-  }
-</script>
-	</body>
+          console.log('Selected payment method:', paymentMethod);
 
+          // Tampilkan logo
+          if (paymentLogos[paymentMethod] && logoImg) {
+            logoImg.src = paymentLogos[paymentMethod];
+            logoElement.style.display = 'block';
+            console.log('Logo URL set to:', paymentLogos[paymentMethod]);
+          } else {
+            console.log('Logo not found for method:', paymentMethod);
+          }
+
+          // Tampilkan QRIS atau kode pembayaran
+          if (paymentMethod === 'qris') {
+            qrisPayment.style.display = 'block';
+          } else if (['ovo', 'gopay', 'bca'].includes(paymentMethod)) {
+            paymentCode = generatePaymentCode();
+            paymentCodeValue.textContent = paymentCode;
+            paymentCodeElement.style.display = 'block';
+          }
+
+          // Simpan kode pembayaran untuk transaksi
+          localStorage.setItem('paymentCode', paymentCode);
+        });
+      } else {
+        console.log('Payment method select element not found');
+      }
+
+      // Event listener untuk tombol terapkan kode referral
+      const applyReferralButton = document.getElementById('apply-referral');
+      if (applyReferralButton) {
+        applyReferralButton.addEventListener('click', function () {
+          const referralCode = document.getElementById('c_referral_code').value.trim().toUpperCase();
+          const validCodes = JSON.parse(localStorage.getItem('validReferralCodes')) || [];
+
+          if (validCodes.includes(referralCode)) {
+            referralDiscount = subtotal * 0.1; // Diskon 10%
+            totalAfterDiscount = subtotal - referralDiscount;
+            document.getElementById('referral_discount').innerText = formatRupiah(referralDiscount);
+            document.getElementById('order_total').innerText = formatRupiah(totalAfterDiscount);
+            alert('Kode referral valid! Diskon 10% diterapkan.');
+          } else {
+            referralDiscount = 0;
+            totalAfterDiscount = subtotal;
+            document.getElementById('referral_discount').innerText = formatRupiah(0);
+            document.getElementById('order_total').innerText = formatRupiah(totalAfterDiscount);
+            alert('Kode referral tidak valid.');
+          }
+          localStorage.setItem('totalAfterDiscount', totalAfterDiscount);
+        });
+      }
+
+      // Event listener untuk proses pembayaran
+      const processPaymentButton = document.getElementById('process-payment');
+      if (processPaymentButton) {
+        processPaymentButton.addEventListener('click', function (e) {
+          e.preventDefault();
+          const form = document.getElementById('checkout-form');
+          if (form.checkValidity()) {
+            saveTransaction();
+          } else {
+            form.reportValidity();
+          }
+        });
+      }
+    });
+
+    // Fungsi untuk format Rupiah
+    function formatRupiah(angka) {
+      return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    // Fungsi untuk menampilkan item pesanan di tabel
+    function renderOrderItems() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const orderItemsContainer = document.getElementById('order-items');
+      orderItemsContainer.innerHTML = '';
+
+      cart.forEach(item => {
+        orderItemsContainer.innerHTML += `
+          <tr>
+            <td class="product-name">${item.name} x${item.quantity}</td>
+            <td class="product-total">${formatRupiah(item.price * item.quantity)}</td>
+          </tr>
+        `;
+      });
+    }
+
+    // Fungsi untuk menyimpan transaksi ke localStorage
+    function saveTransaction() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const subtotal = document.getElementById('cart_subtotal').innerText;
+      const total = document.getElementById('order_total').innerText;
+      const paymentMethod = document.getElementById('payment_method').value;
+      const paymentCode = localStorage.getItem('paymentCode') || 'Tidak ada';
+      const name = document.getElementById('c_name').value;
+      const address = document.getElementById('c_address').value;
+      const phone = document.getElementById('c_phone').value;
+      const email = document.getElementById('c_email_address').value;
+      const referralCode = document.getElementById('c_referral_code').value.trim();
+      const orderNotes = document.getElementById('c_order_notes').value;
+
+      const transaction = {
+        id: Date.now(), // Tambahkan ID unik untuk transaksi
+        date: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' }), // Format tanggal sesuai WIB
+        items: cart,
+        subtotal: subtotal,
+        total: total,
+        paymentMethod: paymentMethod,
+        paymentCode: paymentCode,
+        referralCode: referralCode || 'Tidak ada',
+        customer: {
+          name: name,
+          address: address,
+          phone: phone,
+          email: email,
+          orderNotes: orderNotes
+        },
+        status: 'Pending' // Tambahkan status awal
+      };
+
+      let transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+      transactionHistory.push(transaction);
+      localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+
+      // Log untuk debugging
+      console.log('Transaction saved:', transaction);
+      console.log('Updated transactionHistory:', transactionHistory);
+
+      // Kosongkan keranjang setelah transaksi
+      localStorage.removeItem('cart');
+      localStorage.removeItem('subtotal');
+      localStorage.removeItem('totalAfterDiscount');
+      localStorage.removeItem('paymentCode');
+
+      window.location.href = 'thankyou.html';
+    }
+  </script>
+</body>
 </html>

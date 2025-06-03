@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="images/bunga.png">
+  <meta name="description" content="Kelola transaksi pelanggan Soléa Flowers" />
+  <meta name="keywords" content="bootstrap, bootstrap4, kelola transaksi" />
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Kelola Transaksi - Soléa Flowers</title>
+  <style>
+    .table-responsive {
+      overflow-x: auto;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .status-btn {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .status-pending { background-color: #ffc107; color: #fff; }
+    .status-processed { background-color: #28a745; color: #fff; }
+    .status-shipped { background-color: #17a2b8; color: #fff; }
+    .status-completed { background-color: #007bff; color: #fff; }
+    @media (max-width: 768px) {
+      .table th, .table td { font-size: 14px; max-width: 150px; }
+      .status-btn { font-size: 0.8rem; padding: 3px 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
+          <li><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
+          <li><a class="nav-link" href="kelolaartikel.html">Kelola Artikel</a></li>
+          <li class="active"><a class="nav-link" href="kelolatransaksi.html">Kelola Transaksi</a></li>
+        </ul>
+        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="images/user.svg" alt="User Icon">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="index.html">Logout</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Header/Navigation -->
+
+  <!-- Start Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1>Kelola Transaksi</h1>
+            <p class="mb-4">Lihat dan kelola transaksi pelanggan.</p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="hero-img-wrap">
+            <img src="images/logo-dashboard4.png" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero Section -->
+
+  <!-- Start Tabel Transaksi -->
+  <div class="container py-5">
+    <h3>Daftar Transaksi</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Nama Pelanggan</th>
+            <th>Email</th>
+            <th>Total</th>
+            <th>Metode Pembayaran</th>
+            <th>Kode Pembayaran</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="transactionTableBody">
+          <!-- Data transaksi akan dimuat di sini -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- End Tabel Transaksi -->
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Ambil transaksi dari localStorage
+    let transactionHistory = JSON.parse(localStorage.getItem('transactionHistory')) || [];
+
+    // Log untuk debugging
+    console.log('Loaded transactionHistory in kelolatransaksi.html:', transactionHistory);
+
+    // Fungsi untuk menampilkan transaksi di tabel
+    function displayTransactions() {
+      const tableBody = document.getElementById('transactionTableBody');
+      tableBody.innerHTML = '';
+      if (transactionHistory.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="8" class="text-center">Belum ada transaksi tersedia.</td></tr>';
+        return;
+      }
+      transactionHistory.forEach((transaction, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${transaction.date || 'N/A'}</td>
+          <td>${transaction.customer?.name || 'N/A'}</td>
+          <td>${transaction.customer?.email || 'N/A'}</td>
+          <td>${transaction.total || 'N/A'}</td>
+          <td>${transaction.paymentMethod || 'N/A'}</td>
+          <td>${transaction.paymentCode || 'N/A'}</td>
+          <td>
+            <select class="form-select status-btn ${getStatusClass(transaction.status || 'Pending')}" onchange="updateStatus(${index}, this.value)">
+              <option value="Pending" ${(!transaction.status || transaction.status === 'Pending') ? 'selected' : ''}>Pending</option>
+              <option value="Processed" ${transaction.status === 'Processed' ? 'selected' : ''}>Diproses</option>
+              <option value="Shipped" ${transaction.status === 'Shipped' ? 'selected' : ''}>Dikirim</option>
+              <option value="Completed" ${transaction.status === 'Completed' ? 'selected' : ''}>Selesai</option>
+            </select>
+          </td>
+          <td><button class="btn btn-danger btn-sm" onclick="deleteTransaction(${index})">Hapus</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Fungsi untuk mendapatkan kelas status
+    function getStatusClass(status) {
+      const statusMap = {
+        'Pending': 'status-pending',
+        'Processed': 'status-processed',
+        'Shipped': 'status-shipped',
+        'Completed': 'status-completed'
+      };
+      return statusMap[status] || 'status-pending';
+    }
+
+    // Fungsi untuk memperbarui status transaksi
+    function updateStatus(index, newStatus) {
+      transactionHistory[index].status = newStatus;
+      localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+      displayTransactions();
+    }
+
+    // Fungsi untuk menghapus transaksi
+    function deleteTransaction(index) {
+      if (confirm('Apakah Anda yakin ingin menghapus transaksi ini?')) {
+        transactionHistory.splice(index, 1);
+        localStorage.setItem('transactionHistory', JSON.stringify(transactionHistory));
+        displayTransactions();
+      }
+    }
+
+    // Tampilkan transaksi saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', displayTransactions);
+  </script>
+</body>
+</html>
