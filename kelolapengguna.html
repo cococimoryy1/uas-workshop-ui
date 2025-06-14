@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="images/bunga.png">
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Kelola Pengguna - Soléa Flowers</title>
+  <style>
+    .table-responsive {
+      overflow-x: auto;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+    .btn-action {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    @media (max-width: 768px) {
+      .table th, .table td {
+        font-size: 14px;
+        max-width: 150px;
+      }
+      .btn-action {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+      .btn-action i {
+        font-size: 12px;
+      }
+    }
+    @media (max-width: 576px) {
+      .table th, .table td {
+        font-size: 12px;
+        max-width: 100px;
+      }
+      .btn-action {
+        padding: 2px 6px;
+        font-size: 10px;
+      }
+      .btn-action i {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<!-- Start Header/Navigation -->
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Soléa Flowers<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li><a class="nav-link" href="dashboardadmin.html">Dashboard</a></li>
+        <li><a class="nav-link" href="kelolaproduk.html">Kelola Produk</a></li>
+        <li><a class="nav-link" href="kelolaartikel.html">Kelola Artikel</a></li>
+        <li><a class="nav-link" href="kelolatransaksi.html">Kelola Transaksi</a></li>
+        <li class="active"><a class="nav-link" href="kelolapengguna.html">Kelola Pengguna</a></li>
+      </ul>
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="images/user.svg" alt="User Icon">
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Header/Navigation -->
+
+<!-- Start Hero Section (Kelola Pengguna) -->
+<div class="hero">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-5">
+        <div class="intro-excerpt">
+          <h1>Kelola Pengguna</h1>
+          <p class="mb-4">Tambah, edit, atau hapus pengguna dari sistem.</p>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="hero-img-wrap">
+          <img src="images/logo-dashboard4.png" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Start Form Tambah Pengguna -->
+<div class="container py-5">
+  <h3>Tambah/Edit Pengguna</h3>
+  <form id="addUserForm" class="row g-3">
+    <input type="hidden" id="editUserId" value="">
+    <div class="col-12 col-md-6 mb-3">
+      <label for="userName" class="form-label">Nama Pengguna</label>
+      <input type="text" class="form-control" id="userName" required>
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="userEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="userEmail" required>
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="userRole" class="form-label">Role</label>
+      <select class="form-control" id="userRole" required>
+        <option value="Admin">Admin</option>
+        <option value="Customer">Customer</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-6 mb-3">
+      <label for="userPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="userPassword" required>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Simpan Pengguna</button>
+      <button type="button" class="btn btn-secondary" id="cancelEdit" style="display:none;" onclick="cancelEdit()">Batal</button>
+    </div>
+  </form>
+</div>
+<!-- End Form Tambah Pengguna -->
+
+<!-- Start Tabel Pengguna -->
+<div class="container py-5">
+  <h3>Daftar Pengguna</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nama Pengguna</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <!-- Data Pengguna akan dimuat di sini -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Tabel Pengguna -->
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+  // Ambil pengguna dari localStorage atau gunakan array kosong
+  let userList = JSON.parse(localStorage.getItem('userList')) || [];
+
+  // Fungsi untuk menghasilkan ID unik
+  function getNewId() {
+    return userList.length > 0 ? Math.max(...userList.map(u => u.id)) + 1 : 1;
+  }
+
+  // Fungsi Arsipkan Pengguna
+  function archiveUser(index) {
+    const user = userList[index];
+    if (confirm(`Apakah Anda yakin ingin mengarsipkan pengguna "${user.nama}"?`)) {
+      user.status = 'Arsip';
+      localStorage.setItem('userList', JSON.stringify(userList));
+      displayUsers();
+    }
+  }
+
+  // Tampilkan Pengguna di Tabel
+  function displayUsers() {
+    const tableBody = document.getElementById('userTableBody');
+    tableBody.innerHTML = '';
+    userList.forEach((user, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${user.id}</td>
+        <td>${user.nama}</td>
+        <td>${user.email}</td>
+        <td>${user.role}</td>
+        <td>${user.status || 'Aktif'}</td>
+        <td>
+          <button class="btn btn-warning btn-sm btn-action" onclick="editUser(${index})"><i class="fas fa-edit"></i> Edit</button>
+          <button class="btn btn-danger btn-sm btn-action" onclick="deleteUser(${index})"><i class="fas fa-trash"></i> Delete</button>
+          <button class="btn btn-info btn-sm btn-action" onclick="archiveUser(${index})"><i class="fas fa-archive"></i> Arsipkan</button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Fungsi Menambah atau Edit Pengguna
+  document.getElementById('addUserForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const editUserId = document.getElementById('editUserId').value;
+    const userName = document.getElementById('userName').value;
+    const userEmail = document.getElementById('userEmail').value;
+    const userRole = document.getElementById('userRole').value;
+    const userPassword = document.getElementById('userPassword').value;
+
+    const newUser = {
+      id: editUserId ? parseInt(editUserId) : getNewId(),
+      nama: userName,
+      email: userEmail,
+      role: userRole,
+      password: userPassword,
+      status: "Aktif"
+    };
+
+    if (editUserId) {
+      // Update pengguna yang ada
+      const index = userList.findIndex(u => u.id === parseInt(editUserId));
+      if (index !== -1) {
+        userList[index] = newUser;
+      }
+    } else {
+      // Tambah pengguna baru
+      userList.push(newUser);
+    }
+
+    localStorage.setItem('userList', JSON.stringify(userList));
+    displayUsers();
+    cancelEdit(); // Reset form setelah simpan
+  });
+
+  // Fungsi Edit Pengguna
+  function editUser(index) {
+    const user = userList[index];
+    document.getElementById('editUserId').value = user.id;
+    document.getElementById('userName').value = user.nama;
+    document.getElementById('userEmail').value = user.email;
+    document.getElementById('userRole').value = user.role;
+    document.getElementById('userPassword').value = user.password;
+    document.getElementById('cancelEdit').style.display = 'inline-block';
+  }
+
+  // Fungsi Batal Edit
+  function cancelEdit() {
+    document.getElementById('addUserForm').reset();
+    document.getElementById('editUserId').value = '';
+    document.getElementById('cancelEdit').style.display = 'none';
+  }
+
+  // Fungsi Hapus Pengguna
+  function deleteUser(index) {
+    if (confirm('Apakah Anda yakin ingin menghapus pengguna ini?')) {
+      userList.splice(index, 1);
+      localStorage.setItem('userList', JSON.stringify(userList));
+      displayUsers();
+    }
+  }
+
+  // Tampilkan Pengguna saat Halaman Dimuat
+  displayUsers();
+</script>
+</body>
+</html>

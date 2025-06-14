@@ -64,6 +64,21 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+    .login-container .btn-back {
+      background-color: #28a745;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    .login-container .btn-back:hover {
+      background-color: #face69;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
     .login-container .forgot-password {
       font-size: 0.9rem;
       color: #28a745;
@@ -84,6 +99,10 @@
         font-size: 1.5rem;
       }
     }
+    .alert-note {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +118,12 @@
         <input type="password" class="form-control" id="password" placeholder="Kata Sandi" required>
       </div>
       <button type="submit" class="btn btn-primary">Masuk</button>
+      <!-- Tambahan pesan alert -->
+      <div class="alert alert-info alert-note" role="alert">
+        Untuk login admin, gunakan email: <strong>admil@gmail.com</strong> dan password: <strong>12345678</strong>.
+      </div>
+      <!-- Tambahan tombol kembali -->
+      <a href="index.html" class="btn btn-back">Kembali</a>
       <!-- <a href="#" class="forgot-password">Lupa Kata Sandi?</a> -->
     </form>
   </div>
