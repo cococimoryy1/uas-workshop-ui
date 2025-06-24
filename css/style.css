@@ -36,10 +36,12 @@ a.more {
 .custom-navbar {
   background: #3b5d50 !important;
   padding: 15px 0;
+  overflow-x: hidden;
 }
 .custom-navbar .navbar-brand {
   font-size: 32px;
   font-weight: 600;
+  overflow-x: hidden;
 }
 .custom-navbar .navbar-brand > span {
   opacity: .4;
@@ -51,6 +53,7 @@ a.more {
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: none;
+  overflow-x: hidden;
 }
 @media (min-width: 992px) {
   .custom-navbar .custom-navbar-nav li {
@@ -119,10 +122,20 @@ a.more {
 .hero {
   background: #3b5d50;
   padding: 4rem 0;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   .hero {
     padding: 2rem 0;
+  }
+    .hero .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px; /* atau lebih besar jika perlu */
+  }
+
+  .hero .btn + .btn {
+    margin-bottom: 0;
   }
 }
 .hero .intro-excerpt {
@@ -147,22 +160,21 @@ a.more {
 .hero p {
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 30px;
-}
 .hero .hero-img-wrap {
   position: relative;
 }
 .hero .hero-img-wrap img {
   position: relative;
-  top: 0;
-  right: 0;
+  top: 70px;
+  right: 100px;
   z-index: 2;
   max-width: 100%;
   height: auto;
 }
 @media (min-width: 768px) {
   .hero .hero-img-wrap img {
-    max-width: 780px;
-    left: -100px;
+    max-width: 100%;
+    left: -50px;
   }
 }
 @media (min-width: 992px) {
@@ -170,12 +182,15 @@ a.more {
     position: absolute;
     top: -80px;
     right: -50px;
+    max-width: 100%;
   }
 }
 @media (max-width: 767px) {
   .hero .hero-img-wrap img {
     margin-top: 2rem;
   }
+}
+
 }
 .hero .hero-img-wrap:after {
   content: "";
@@ -186,7 +201,7 @@ a.more {
   background-size: contain;
   background-repeat: no-repeat;
   right: -100px;
-  top: -40px;
+  top: -60px;
   display: none;
 }
 @media (min-width: 1200px) {
@@ -293,6 +308,7 @@ a.more {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
+  overflow: hidden;
 }
 .product-section .product-item .icon-cross img {
   position: absolute;
@@ -651,6 +667,7 @@ a.more {
 .footer-section {
   padding: 80px 0;
   background: #ffffff;
+    overflow: hidden;
 }
 .footer-section .relative {
   position: relative;
@@ -712,13 +729,19 @@ a.more {
 }
 .footer-section .sofa-img {
   position: absolute;
-  top: -200px;
-  z-index: 1;
+  top: -100px;
   right: 0;
+  width: 200px;
+  max-width: 50vw; /* penting untuk mobile */
+  z-index: 1;
 }
+
 .footer-section .sofa-img img {
-  max-width: 380px;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
+
 .footer-section .links-wrap {
   margin-top: 0px;
 }
@@ -727,6 +750,15 @@ a.more {
     margin-top: 54px;
   }
 }
+@media (max-width: 767px) {
+  .footer-section .sofa-img {
+    top: -80px;
+    right: -10px;
+    width: 150px;
+    max-width: 60vw;
+  }
+}
+
 .footer-section .links-wrap ul li {
   margin-bottom: 10px;
 }
